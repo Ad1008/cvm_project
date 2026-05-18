@@ -1,0 +1,52 @@
+CVM++ Submission Instructions
+=============================
+
+This document provides instructions on how to build and run the CVM++ Compiler and Virtual Machine.
+
+Prerequisites
+-------------
+- A C++ compiler supporting C++17 (e.g., g++, clang++).
+- (Optional) CMake 3.10 or higher for automated builds.
+
+Building the Project
+--------------------
+
+### Option 1: Using g++ (Manual)
+Run the following command in the project root:
+    g++ -std=c++17 src/*.cpp -o cvm.exe
+
+### Option 2: Using CMake
+Run the following commands:
+    mkdir build
+    cd build
+    cmake ..
+    cmake --build .
+
+Running CVM++
+-------------
+
+### Running a Script
+To execute a .cvm file:
+    ./cvm.exe path/to/script.cvm
+
+Example:
+    ./cvm.exe loop.cvm
+
+### Interactive REPL
+To start the interactive REPL, run the executable without arguments:
+    ./cvm.exe
+
+Inside the REPL, you can type 'exit' to quit.
+
+### Debugging Flags
+- `--ast`: Displays the Abstract Syntax Tree before execution.
+- `--code`: Displays the compiled bytecode (disassembly).
+
+Example with flags:
+    ./cvm.exe --ast --code loop.cvm
+
+Project Structure
+-----------------
+- src/: Source code (Lexer, Parser, Compiler, VM).
+- tests/: Unit tests for components.
+- *.cvm: Sample scripts for testing features.

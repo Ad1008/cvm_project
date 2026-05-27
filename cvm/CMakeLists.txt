@@ -6,8 +6,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include_directories(src)
 
-file(GLOB_RECURSE SOURCES "src/*.cpp")
+set(CORE_SOURCES
+    src/lexer.cpp
+    src/parser.cpp
+    src/compiler.cpp
+    src/vm.cpp
+)
 
-add_executable(cvm src/main.cpp ${SOURCES})
+add_executable(cvm src/main.cpp ${CORE_SOURCES})
 
-add_executable(test_lexer tests/test_lexer.cpp ${SOURCES})
+add_executable(test_lexer tests/test_lexer.cpp ${CORE_SOURCES})
